@@ -345,7 +345,7 @@
       align-items: center;
       gap: 8px;
       opacity: 0;
-      animation: fadeIn 1s 1.2s forwards;
+      transition: opacity 0.6s ease;
     }
     .hero-scroll span {
       0.638rem;
@@ -815,8 +815,18 @@
   <script>
     // Nav scroll effect
     const nav = document.getElementById('main-nav');
+    const heroScroll = document.querySelector('.hero-scroll');
+
+    // Fade in scroll indicator after page load
+    setTimeout(() => {
+      if (heroScroll) heroScroll.style.opacity = '1';
+    }, 1800);
+
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
+      if (heroScroll) {
+        heroScroll.style.opacity = window.scrollY > 60 ? '0' : '1';
+      }
     });
 
     // Mobile menu
