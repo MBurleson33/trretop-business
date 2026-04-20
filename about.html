@@ -168,7 +168,7 @@
 </head>
 <body>
 
-  <nav class="solid">
+  <nav id="main-nav">
     <a href="index.html" class="nav-logo">
       <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
     </a>
@@ -504,6 +504,11 @@
     }
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
 
     function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 
