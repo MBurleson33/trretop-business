@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── SOLUTIONS PAGE SPECIFIC ── */
+    /* ── SOLUTIONS PAGE ── */
 
     .section-services {
       background: var(--white);
@@ -21,204 +21,148 @@
       margin: 0 auto;
     }
 
-    /* ── SERVICE BLOCKS ── */
-    .service-block {
+    /* Service card */
+    .service-card {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 0;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      background: var(--white);
       transition: box-shadow 0.3s;
     }
-    .service-block:hover {
-      box-shadow: 0 12px 48px rgba(0,0,0,0.08);
-    }
-    .service-block-reverse {
-      direction: rtl;
-    }
-    .service-block-reverse > * {
-      direction: ltr;
+    .service-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
     }
 
-    /* Left: accent panel */
-    .service-accent {
-      background: var(--green);
-      padding: 56px 48px;
+    /* Left label column */
+    .service-label {
+      background: var(--cream);
+      padding: 48px 36px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
+      border-right: 1px solid rgba(0,0,0,0.07);
     }
-    .service-accent::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
-    .service-accent-icon {
-      width: 52px;
-      height: 52px;
-      border: 1px solid rgba(207,184,125,0.35);
+    .service-label-icon {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid rgba(207,184,125,0.5);
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 20px;
+      color: var(--green);
     }
-    .service-accent-icon svg {
-      color: var(--gold);
-    }
-    .service-accent h2 {
+    .service-label h2 {
       font-family: var(--serif);
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      font-size: 1.8rem;
       font-weight: 300;
-      color: var(--white);
+      color: var(--green);
       line-height: 1.2;
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 10px;
     }
-    .service-accent h2 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-    .service-accent p {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.6);
+    .service-label h2 em { font-style: italic; }
+    .service-label p {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--text-mid);
       font-weight: 300;
-      position: relative;
-      z-index: 1;
     }
 
-    /* Right: details panel */
+    /* Right details column */
     .service-details {
-      background: var(--white);
-      padding: 56px 48px;
+      padding: 48px 52px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      gap: 48px;
+      align-items: flex-start;
     }
-    .service-list-title {
-      font-size: 0.66rem;
+    .service-items {
+      flex: 1;
+    }
+    .service-items-title {
+      font-size: 0.62rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
       font-weight: 500;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .service-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 11px;
     }
     .service-list li {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      font-size: 0.95rem;
+      gap: 12px;
+      font-size: 0.92rem;
       color: var(--text-mid);
       font-weight: 300;
       line-height: 1.5;
     }
     .service-list li::before {
       content: '';
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--gold);
       flex-shrink: 0;
-      margin-top: 6px;
+      margin-top: 7px;
+    }
+    .service-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      padding-top: 4px;
     }
     .service-cta {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.748rem;
-      letter-spacing: 0.18em;
+      gap: 8px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--green);
       text-decoration: none;
       font-weight: 600;
+      white-space: nowrap;
       transition: gap 0.2s, color 0.2s;
-      margin-top: auto;
     }
     .service-cta::after { content: '→'; transition: transform 0.2s; }
-    .service-cta:hover { color: var(--gold); gap: 16px; }
+    .service-cta:hover { color: var(--gold); gap: 14px; }
     .service-cta:hover::after { transform: translateX(4px); }
 
-    /* Wide block for Branding — full width accent top */
-    .service-block-wide {
-      grid-template-columns: 1fr;
+    /* Branding card — cream accent label */
+    .service-card-branding .service-label {
       background: var(--green);
-      position: relative;
-      overflow: hidden;
+      border-right-color: rgba(255,255,255,0.1);
     }
-    .service-block-wide::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
+    .service-card-branding .service-label-icon {
+      border-color: rgba(207,184,125,0.4);
+      color: var(--gold);
     }
-    .service-wide-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      position: relative;
-      z-index: 1;
-    }
-    .service-wide-left {
-      padding: 56px 48px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-    .service-wide-right {
-      padding: 56px 48px;
-    }
-    .service-wide-badge {
+    .service-card-branding .service-label h2 { color: var(--white); }
+    .service-card-branding .service-label h2 em { color: var(--gold); }
+    .service-card-branding .service-label p { color: rgba(255,255,255,0.6); }
+    .service-card-branding .service-label-badge {
       display: inline-block;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
-      border: 1px solid rgba(207,184,125,0.4);
-      padding: 5px 14px;
+      border: 1px solid rgba(207,184,125,0.35);
+      padding: 4px 10px;
       border-radius: 100px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
-    .service-wide-left h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-    .service-wide-left h2 em { font-style: italic; color: var(--gold); }
-    .service-wide-left p {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      margin-bottom: 28px;
-    }
-    .service-wide-right .service-list-title { color: rgba(207,184,125,0.7); }
-    .service-wide-right .service-list li { color: rgba(255,255,255,0.65); }
-    .service-wide-right .service-list li::before { background: var(--gold); opacity: 0.7; }
-    .service-wide-right .service-cta { color: var(--gold); }
-    .service-wide-right .service-cta:hover { color: var(--gold-light); }
 
     /* CTA */
     .section-cta { background: var(--cream); padding: 80px 4%; text-align: center; }
@@ -227,22 +171,15 @@
     .cta-headline em { font-style: italic; color: var(--gold); }
     .cta-body { font-size: 0.99rem; line-height: 1.8; color: var(--text-mid); font-weight: 300; margin-bottom: 36px; }
 
-    /* Responsive */
     @media (max-width: 900px) {
-      .service-block { grid-template-columns: 1fr; }
-      .service-block-reverse { direction: ltr; }
-      .service-wide-inner { grid-template-columns: 1fr; }
-      .service-wide-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-      .service-accent,
-      .service-details,
-      .service-wide-left,
-      .service-wide-right { padding: 40px 32px; }
+      .service-card { grid-template-columns: 1fr; }
+      .service-label { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.07); padding: 36px 32px; }
+      .service-details { flex-direction: column; gap: 24px; padding: 36px 32px; }
+      .service-action { align-items: flex-start; }
     }
     @media (max-width: 600px) {
-      .service-accent,
-      .service-details,
-      .service-wide-left,
-      .service-wide-right { padding: 32px 24px; }
+      .service-label,
+      .service-details { padding: 28px 24px; }
     }
   </style>
 </head>
@@ -270,7 +207,6 @@
     <a href="get-started.html" class="nav-cta">Get Started</a>
   </div>
 
-  <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="page-header-inner">
       <div class="page-eyebrow">
@@ -284,96 +220,111 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="section-services">
     <div class="services-inner">
 
       <!-- Bookkeeping -->
-      <div class="service-block reveal">
-        <div class="service-accent">
-          <div class="service-accent-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <div class="service-card reveal">
+        <div class="service-label">
+          <div class="service-label-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             </svg>
           </div>
           <h2>Book<em>keeping</em></h2>
-          <p>A full range of cost-effective accounting services to help you stay organized, accurate, and confident in your financials.</p>
+          <p>Cost-effective accounting services to keep you organized and confident in your financials.</p>
         </div>
         <div class="service-details">
-          <div class="service-list-title">What's Included</div>
-          <ul class="service-list">
-            <li>QuickBooks Online setup &amp; management</li>
-            <li>Financial Statements (Monthly, Quarterly &amp; Annual)</li>
-            <li>Accounts Receivable / Invoicing</li>
-            <li>Accounts Payable</li>
-            <li>Bank &amp; credit card reconciliation</li>
-            <li>Transaction categorization &amp; coding</li>
-          </ul>
-          <a href="get-started.html" class="service-cta">Get Started</a>
+          <div class="service-items">
+            <div class="service-items-title">What's Included</div>
+            <ul class="service-list">
+              <li>QuickBooks Online setup &amp; management</li>
+              <li>Financial Statements — Monthly, Quarterly &amp; Annual</li>
+              <li>Accounts Receivable / Invoicing</li>
+              <li>Accounts Payable</li>
+              <li>Bank &amp; credit card reconciliation</li>
+              <li>Transaction categorization &amp; coding</li>
+            </ul>
+          </div>
+          <div class="service-action">
+            <a href="get-started.html" class="service-cta">Get Started</a>
+          </div>
         </div>
       </div>
 
       <!-- Consulting -->
-      <div class="service-block service-block-reverse reveal">
-        <div class="service-accent">
-          <div class="service-accent-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <div class="service-card reveal">
+        <div class="service-label">
+          <div class="service-label-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
             </svg>
           </div>
           <h2>Con<em>sulting</em></h2>
-          <p>Expert advice and guidance to get your business systems running right — whether you're just starting out or need a full overhaul.</p>
+          <p>Expert guidance to get your business systems running right from day one.</p>
         </div>
         <div class="service-details">
-          <div class="service-list-title">What's Included</div>
-          <ul class="service-list">
-            <li>Accounting System Implementation</li>
-            <li>Digital System Implementation</li>
-            <li>New Business Startup guidance</li>
-            <li>QuickBooks setup &amp; training</li>
-            <li>Payroll System Implementation</li>
-            <li>Process review &amp; recommendations</li>
-          </ul>
-          <a href="get-started.html" class="service-cta">Get Started</a>
+          <div class="service-items">
+            <div class="service-items-title">What's Included</div>
+            <ul class="service-list">
+              <li>Accounting System Implementation</li>
+              <li>Digital System Implementation</li>
+              <li>New Business Startup guidance</li>
+              <li>QuickBooks setup &amp; training</li>
+              <li>Payroll System Implementation</li>
+              <li>Process review &amp; recommendations</li>
+            </ul>
+          </div>
+          <div class="service-action">
+            <a href="get-started.html" class="service-cta">Get Started</a>
+          </div>
         </div>
       </div>
 
       <!-- Sales Tax -->
-      <div class="service-block reveal">
-        <div class="service-accent">
-          <div class="service-accent-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <div class="service-card reveal">
+        <div class="service-label">
+          <div class="service-label-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
           </div>
           <h2>Sales <em>Tax</em></h2>
-          <p>Comprehensive sales tax and payroll reporting so you stay compliant — without the headache of keeping up with it yourself.</p>
+          <p>Stay compliant with comprehensive tax and payroll reporting — without the headache.</p>
         </div>
         <div class="service-details">
-          <div class="service-list-title">What's Included</div>
-          <ul class="service-list">
-            <li>Sales Tax Reporting &amp; Filing</li>
-            <li>Annual 1099 &amp; W2 Filings</li>
-            <li>Payroll Reports (monthly, quarterly &amp; annually)</li>
-            <li>W2 &amp; state wage reports</li>
-            <li>Employment Security Reports</li>
-            <li>941/W2 filings</li>
-          </ul>
-          <a href="get-started.html" class="service-cta">Get Started</a>
+          <div class="service-items">
+            <div class="service-items-title">What's Included</div>
+            <ul class="service-list">
+              <li>Sales Tax Reporting &amp; Filing</li>
+              <li>Annual 1099 &amp; W2 Filings</li>
+              <li>Payroll Reports — monthly, quarterly &amp; annually</li>
+              <li>W2 &amp; state wage reports</li>
+              <li>Employment Security Reports</li>
+              <li>941/W2 filings</li>
+            </ul>
+          </div>
+          <div class="service-action">
+            <a href="get-started.html" class="service-cta">Get Started</a>
+          </div>
         </div>
       </div>
 
-      <!-- Branding & Web — full width dark block -->
-      <div class="service-block service-block-wide reveal">
-        <div class="service-wide-inner">
-          <div class="service-wide-left">
-            <div class="service-wide-badge">Powered by thirtythree visuals</div>
-            <h2>Branding &amp; <em>Web Design</em></h2>
-            <p>We turn ideas into visuals that connect and inspire. From eye-catching logos to strategic websites and digital campaigns, our design team helps small businesses stand out, strengthen their identity, and grow with confidence.</p>
-            <a href="get-started.html" class="service-cta" style="color:var(--gold);">Get Started</a>
+      <!-- Branding & Web -->
+      <div class="service-card service-card-branding reveal">
+        <div class="service-label">
+          <span class="service-label-badge">thirtythree visuals</span>
+          <div class="service-label-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
           </div>
-          <div class="service-wide-right">
-            <div class="service-list-title">What's Included</div>
+          <h2>Branding &amp; <em>Web</em></h2>
+          <p>From logos to full websites — we help your business look as good as it runs.</p>
+        </div>
+        <div class="service-details">
+          <div class="service-items">
+            <div class="service-items-title">What's Included</div>
             <ul class="service-list">
               <li>Logo Design &amp; Brand Identity</li>
               <li>Website Design &amp; Development</li>
@@ -383,13 +334,15 @@
               <li>Web Maintenance &amp; Updates</li>
             </ul>
           </div>
+          <div class="service-action">
+            <a href="get-started.html" class="service-cta">Get Started</a>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section-cta">
     <div class="section-cta-inner reveal">
       <div class="section-label" style="justify-content:center;">
@@ -399,14 +352,11 @@
       <h2 class="cta-headline">
         Not sure which service<br>is right for <em>you?</em>
       </h2>
-      <p class="cta-body">
-        Fill out our Get Started form and tell us a little about your business. We'll reach out to talk through the best fit — no pressure, just a conversation.
-      </p>
+      <p class="cta-body">Fill out our Get Started form and tell us a little about your business. We'll reach out to talk through the best fit — no pressure, just a conversation.</p>
       <a href="get-started.html" class="btn-primary">Get Started Today</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
