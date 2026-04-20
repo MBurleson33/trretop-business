@@ -12,7 +12,6 @@
   <style>
     /* ── ABOUT PAGE SPECIFIC ── */
 
-    /* Story section */
     .section-story { background: var(--white); padding: 100px 5%; }
     .story-inner {
       max-width: 1100px;
@@ -22,90 +21,52 @@
       gap: 80px;
       align-items: start;
     }
-    .story-left h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 3.3vw, 3.08rem);
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 28px;
-    }
+    .story-left h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.3vw, 3.08rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 28px; }
     .story-left h2 em { font-style: italic; }
     .story-left p { font-size: 1.045rem; line-height: 1.9; color: var(--text-mid); font-weight: 300; margin-bottom: 20px; }
-    .faith-callout {
-      margin-top: 36px;
-      padding: 28px 32px;
-      background: var(--cream);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 4px 4px 0;
-    }
-    .faith-callout p {
-      font-family: var(--serif);
-      font-size: 1.265rem;
-      font-style: italic;
-      color: var(--green);
-      line-height: 1.65;
-      font-weight: 400;
-      margin: 0;
-    }
+    .faith-callout { margin-top: 36px; padding: 28px 32px; background: var(--cream); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; }
+    .faith-callout p { font-family: var(--serif); font-size: 1.265rem; font-style: italic; color: var(--green); line-height: 1.65; font-weight: 400; margin: 0; }
     .story-right { display: flex; flex-direction: column; gap: 0; position: sticky; top: 120px; }
-    .commitment-block {
-      padding: 32px;
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 4px;
-      margin-bottom: 16px;
-      background: var(--cream);
-      transition: box-shadow 0.3s;
-    }
+    .commitment-block { padding: 32px; border: 1px solid rgba(0,0,0,0.07); border-radius: 4px; margin-bottom: 16px; background: var(--cream); transition: box-shadow 0.3s; }
     .commitment-block:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
     .commitment-num { font-family: var(--serif); font-size: 2.2rem; color: var(--gold); opacity: 0.5; line-height: 1; margin-bottom: 10px; font-style: italic; }
     .commitment-title { font-size: 0.792rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 8px; }
     .commitment-body { font-size: 0.935rem; line-height: 1.75; color: var(--text-mid); font-weight: 300; }
 
-    /* Team section */
+    /* Team */
     .section-team { background: var(--white); padding: 100px 5%; }
     .team-inner { max-width: 1100px; margin: 0 auto; }
     .team-header { margin-bottom: 60px; }
     .team-header h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.3vw, 3.08rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 12px; }
     .team-header h2 em { font-style: italic; }
     .team-header p { font-size: 0.99rem; color: var(--text-mid); font-weight: 300; max-width: 500px; }
-    .team-group-label {
-      font-size: 0.66rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .team-group-label { font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
     .team-group-label::after { content: ''; flex: 1; height: 1px; background: rgba(207,184,125,0.5); }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
-    .team-grid-single { grid-template-columns: repeat(1, 280px); }
+    .team-grid-single { grid-template-columns: 280px; }
+
     .team-card {
       background: var(--cream);
       border-radius: 4px;
       overflow: hidden;
       border: 1px solid rgba(0,0,0,0.06);
+      cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+    .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
     .team-photo { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; position: relative; }
-    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%); transition: filter 0.4s, transform 0.4s; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(10%); transition: filter 0.4s, transform 0.4s; }
     .team-card:hover .team-photo img { filter: grayscale(0%); transform: scale(1.03); }
-    .team-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
-    }
+    .team-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); }
     .team-photo-placeholder span { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: rgba(207,184,125,0.4); font-style: italic; }
     .team-info { padding: 20px 22px 24px; border-top: 2px solid var(--gold); }
     .team-name { font-family: var(--serif); font-size: 1.32rem; font-weight: 500; color: var(--green); margin-bottom: 4px; }
     .team-role { font-size: 0.748rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); font-weight: 400; }
+    .team-card-hint { font-size: 0.68rem; color: var(--gold); margin-top: 8px; letter-spacing: 0.08em; }
+
+    /* Badges on card */
+    .team-badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .team-badge img { height: 36px; width: auto; }
 
     /* CTA */
     .section-cta { background: var(--cream); padding: 80px 5%; text-align: center; }
@@ -114,15 +75,94 @@
     .cta-headline em { font-style: italic; color: var(--gold); }
     .cta-body { font-size: 0.99rem; line-height: 1.8; color: var(--text-mid); font-weight: 300; margin-bottom: 36px; }
 
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,41,34,0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: 6px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 20px 0;
+      background: var(--white);
+      z-index: 2;
+    }
+    .modal-close button {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-mid);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      transition: color 0.2s;
+    }
+    .modal-close button:hover { color: var(--green); }
+    .modal-body { padding: 8px 40px 40px; }
+    .modal-header { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
+    .modal-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid var(--gold);
+    }
+    .modal-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .modal-photo-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, var(--green), var(--green-mid)); display: flex; align-items: center; justify-content: center; }
+    .modal-photo-placeholder span { font-family: var(--serif); font-size: 1.8rem; color: rgba(207,184,125,0.6); font-style: italic; }
+    .modal-name { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--green); margin-bottom: 4px; }
+    .modal-role { font-size: 0.748rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); }
+    .modal-badges { display: flex; gap: 10px; margin-top: 10px; }
+    .modal-badges img { height: 44px; width: auto; }
+    .modal-bio { font-size: 0.99rem; line-height: 1.85; color: var(--text-mid); font-weight: 300; margin-bottom: 16px; }
+    .modal-facts-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 16px; margin-top: 28px; }
+    .modal-facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .modal-fact {
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 16px;
+      text-align: center;
+    }
+    .modal-fact-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 8px; }
+    .modal-fact-value { font-size: 0.88rem; color: var(--text-mid); font-weight: 300; line-height: 1.4; }
+
     /* Responsive */
     @media (max-width: 900px) {
       .story-inner { grid-template-columns: 1fr; }
       .story-right { position: static; }
       .team-grid { grid-template-columns: 1fr 1fr; }
       .team-grid-single { grid-template-columns: 1fr 1fr; }
+      .modal-facts-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
+      .modal-body { padding: 8px 20px 28px; }
+      .modal-facts-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -150,7 +190,6 @@
     <a href="get-started.html" class="nav-cta">Get Started</a>
   </div>
 
-  <!-- PAGE HEADER -->
   <section class="page-header">
     <div class="page-header-inner">
       <div class="page-eyebrow">
@@ -164,7 +203,6 @@
     </div>
   </section>
 
-  <!-- ORIGIN STORY -->
   <section class="section-story">
     <div class="story-inner">
       <div class="story-left reveal">
@@ -205,7 +243,6 @@
     </div>
   </section>
 
-  <!-- TEAM -->
   <section class="section-team">
     <div class="team-inner">
       <div class="team-header reveal">
@@ -214,59 +251,78 @@
           <span>The Team</span>
         </div>
         <h2>The people who<br><em>have your back.</em></h2>
-        <p>A small, dedicated team with big care for the businesses they serve.</p>
+        <p>Click any card to learn more about the team.</p>
       </div>
 
       <div class="team-group-label reveal">Bookkeepers</div>
       <div class="team-grid reveal">
-        <div class="team-card reveal reveal-delay-1">
-          <div class="team-photo"><div class="team-photo-placeholder"><span>JB</span></div></div>
+
+        <div class="team-card reveal reveal-delay-1" onclick="openModal('jessica')">
+          <div class="team-photo">
+            <img src="images/Jess - New.jpg" alt="Jessica Burleson" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>JB</span></div>'" />
+          </div>
           <div class="team-info">
             <div class="team-name">Jessica Burleson</div>
             <div class="team-role">Bookkeeper</div>
+            <div class="team-badges">
+              <img src="images/Pro-Advisor Platinum.png" alt="QuickBooks ProAdvisor Platinum" title="QuickBooks ProAdvisor Platinum" />
+            </div>
+            <div class="team-card-hint">Click to learn more →</div>
           </div>
         </div>
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-photo"><div class="team-photo-placeholder"><span>LD</span></div></div>
+
+        <div class="team-card reveal reveal-delay-2" onclick="openModal('lauren')">
+          <div class="team-photo">
+            <img src="images/Lauren - New.jpg" alt="Lauren Doré" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>LD</span></div>'" />
+          </div>
           <div class="team-info">
             <div class="team-name">Lauren Doré</div>
             <div class="team-role">Bookkeeper</div>
+            <div class="team-badges">
+              <img src="images/Pro-Advisor.png" alt="QuickBooks ProAdvisor" title="QuickBooks ProAdvisor" />
+            </div>
+            <div class="team-card-hint">Click to learn more →</div>
           </div>
         </div>
-        <div class="team-card reveal reveal-delay-3">
-          <div class="team-photo"><div class="team-photo-placeholder"><span>NS</span></div></div>
+
+        <div class="team-card reveal reveal-delay-3" onclick="openModal('naomi')">
+          <div class="team-photo">
+            <img src="images/Naomi - New.jpg" alt="Naomi Smith" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>NS</span></div>'" />
+          </div>
           <div class="team-info">
             <div class="team-name">Naomi Smith</div>
             <div class="team-role">Bookkeeper</div>
+            <div class="team-card-hint">Click to learn more →</div>
           </div>
         </div>
+
       </div>
 
       <div class="team-group-label reveal">thirtythree visuals</div>
       <div class="team-grid team-grid-single reveal">
-        <div class="team-card reveal reveal-delay-1">
-          <div class="team-photo"><div class="team-photo-placeholder"><span>MB</span></div></div>
+        <div class="team-card reveal reveal-delay-1" onclick="openModal('matt')">
+          <div class="team-photo">
+            <div class="team-photo-placeholder"><span>MB</span></div>
+          </div>
           <div class="team-info">
             <div class="team-name">Matt Burleson</div>
             <div class="team-role">Web &amp; Brand Design</div>
+            <div class="team-card-hint">Click to learn more →</div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section-cta">
     <div class="section-cta-inner reveal">
-      <h2 class="cta-headline">
-        Ready to work with a team<br>that <em>cares?</em>
-      </h2>
+      <h2 class="cta-headline">Ready to work with a team<br>that <em>cares?</em></h2>
       <p class="cta-body">Tell us about your business. We'll reach out to schedule a free initial conversation.</p>
       <a href="get-started.html" class="btn-primary">Get Started</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
@@ -315,8 +371,142 @@
     </div>
   </footer>
 
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal" id="modal">
+      <div class="modal-close"><button onclick="closeModal()" aria-label="Close">✕</button></div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
   <script>
+    const team = {
+      jessica: {
+        name: 'Jessica Burleson',
+        role: 'Bookkeeper',
+        photo: 'images/Jess - New.jpg',
+        initials: 'JB',
+        badges: ['images/Pro-Advisor Platinum.png'],
+        badgeAlts: ['QuickBooks ProAdvisor Platinum'],
+        bio: [
+          'I am the luckiest lady to be married to my husband, Matt, the amazing father of our two sons, Beckett and Benton, and our daughter Haddie. In my free time, you\'ll find me cheering my kids on in sports, volunteering at church, spending time with my family/friends or studying the Bible. Some of my other favorite things include crafting, playing games, singing, and going for a walk.',
+          'I have a background in project management, corporate communications, and event planning as well as a Bachelor of Arts in Public Communication.'
+        ],
+        facts: [
+          { label: 'Favorite Team', value: 'Oklahoma City Thunder' },
+          { label: 'Pets', value: 'A red maltipoo named Ruby' },
+          { label: 'Dream Vacation', value: 'A Holy Land Tour' },
+          { label: 'First Car', value: 'Light blue 1990 Acura Legend named Leonard' },
+          { label: 'Favorite Candy', value: 'Red licorice or peanut M&Ms' },
+        ]
+      },
+      lauren: {
+        name: 'Lauren Doré',
+        role: 'Bookkeeper',
+        photo: 'images/Lauren - New.jpg',
+        initials: 'LD',
+        badges: ['images/Pro-Advisor.png'],
+        badgeAlts: ['QuickBooks ProAdvisor'],
+        bio: [
+          'I am married to my wonderful husband Beau, who is an incredible father to our four children: Maddox, Zoe, Julian, and Ames. You can usually find me at church where my husband works full time and where we serve as a family or at an athletic game for one of my kids. I enjoy coffee, family time, and absolutely love the beach!',
+          'I have a degree in general studies with a concentration in Business Management. I was an Accounts Payables Manager for six years and have also done bookkeeping for five years.'
+        ],
+        facts: [
+          { label: 'Favorite Team', value: 'LSU & Saints' },
+          { label: 'Pets', value: 'Yorkshire named Rocky' },
+          { label: 'Dream Vacation', value: 'Italy' },
+          { label: 'First Car', value: 'Plymouth Breeze' },
+          { label: 'Favorite Candy', value: 'Everything chocolate' },
+        ]
+      },
+      naomi: {
+        name: 'Naomi Smith',
+        role: 'Bookkeeper',
+        photo: 'images/Naomi - New.jpg',
+        initials: 'NS',
+        badges: [],
+        badgeAlts: [],
+        bio: [
+          'I am a momma of two precious kiddos, Shepard and Spencer, and the wife to my amazing husband Zac. When I\'m not working you will find me studying the Bible, reading a book, cooking, going on long walks, listening to sermons, serving in church, singing, enjoying lunch with a friend, and spending quality time with my family. Within a few minutes of getting to know me, you will quickly find that my family & Jesus are my everything.',
+          'My background is in Oil & Gas both crude oil and exploration. I have a degree in business management. I\'m excited to be a part of this incredible group of women.'
+        ],
+        facts: [
+          { label: 'Favorite Team', value: 'OSU, Baltimore Orioles' },
+          { label: 'Pets', value: 'A Golden-doodle named Toby' },
+          { label: 'Dream Vacation', value: 'Southern Europe' },
+          { label: 'First Car', value: 'Dodge Neon' },
+          { label: 'Favorite Candy', value: 'Anything Chocolate' },
+        ]
+      },
+      matt: {
+        name: 'Matt Burleson',
+        role: 'Web & Brand Design',
+        photo: null,
+        initials: 'MB',
+        badges: [],
+        badgeAlts: [],
+        bio: [
+          'Matthew Burleson is a multimedia professional and creative strategist with a strong background in video production, web design, branding, and emerging technologies. With a degree in Multimedia Production and years of experience leading content development across digital platforms, he specializes in turning complex ideas into engaging visual and interactive experiences.'
+        ],
+        facts: [
+          { label: 'Favorite Team', value: 'Oklahoma City Thunder' },
+          { label: 'Pets', value: 'Ruby, a spunky maltipoo' },
+          { label: 'Dream Vacation', value: 'Upper European tour' },
+          { label: 'First Car', value: 'Eagle Talon' },
+          { label: 'Favorite Candy', value: 'Skittles (berry flavored)' },
+        ]
+      }
+    };
+
+    function openModal(key) {
+      const p = team[key];
+      const photoHtml = p.photo
+        ? `<img src="${p.photo}" alt="${p.name}" onerror="this.parentElement.innerHTML='<div class=\'modal-photo-placeholder\'><span>${p.initials}</span></div>'" />`
+        : `<div class="modal-photo-placeholder"><span>${p.initials}</span></div>`;
+
+      const badgesHtml = p.badges.length
+        ? `<div class="modal-badges">${p.badges.map((b,i) => `<img src="${b}" alt="${p.badgeAlts[i]}" title="${p.badgeAlts[i]}" />`).join('')}</div>`
+        : '';
+
+      const bioHtml = p.bio.map(b => `<p class="modal-bio">${b}</p>`).join('');
+
+      const factsHtml = p.facts.map(f => `
+        <div class="modal-fact">
+          <div class="modal-fact-label">${f.label}</div>
+          <div class="modal-fact-value">${f.value}</div>
+        </div>`).join('');
+
+      document.getElementById('modal-body').innerHTML = `
+        <div class="modal-header">
+          <div class="modal-photo">${photoHtml}</div>
+          <div>
+            <div class="modal-name">${p.name}</div>
+            <div class="modal-role">${p.role}</div>
+            ${badgesHtml}
+          </div>
+        </div>
+        ${bioHtml}
+        <div class="modal-facts-label">Fun Facts</div>
+        <div class="modal-facts-grid">${factsHtml}</div>
+      `;
+
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
     function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
