@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solutions | Treetop Business Solutions</title>
+  <meta name="description" content="Bookkeeping, tax preparation, consulting, sales tax, and web design services for small businesses in Oklahoma City." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── SOLUTIONS PAGE SPECIFIC ── */
+
+    .section-services {
+      background: var(--white);
+      padding: 80px 4% 100px;
+    }
+    .services-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ── SERVICE BLOCKS ── */
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      transition: box-shadow 0.3s;
+    }
+    .service-block:hover {
+      box-shadow: 0 12px 48px rgba(0,0,0,0.08);
+    }
+    .service-block-reverse {
+      direction: rtl;
+    }
+    .service-block-reverse > * {
+      direction: ltr;
+    }
+
+    /* Left: accent panel */
+    .service-accent {
+      background: var(--green);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-accent::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .service-accent-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(207,184,125,0.35);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .service-accent-icon svg {
+      color: var(--gold);
+    }
+    .service-accent h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .service-accent h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .service-accent p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Right: details panel */
+    .service-details {
+      background: var(--white);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .service-list-title {
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .service-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .service-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.748rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: gap 0.2s, color 0.2s;
+      margin-top: auto;
+    }
+    .service-cta::after { content: '→'; transition: transform 0.2s; }
+    .service-cta:hover { color: var(--gold); gap: 16px; }
+    .service-cta:hover::after { transform: translateX(4px); }
+
+    /* Wide block for Branding — full width accent top */
+    .service-block-wide {
+      grid-template-columns: 1fr;
+      background: var(--green);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-block-wide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .service-wide-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .service-wide-left {
+      padding: 56px 48px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .service-wide-right {
+      padding: 56px 48px;
+    }
+    .service-wide-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(207,184,125,0.4);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .service-wide-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .service-wide-left h2 em { font-style: italic; color: var(--gold); }
+    .service-wide-left p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+    .service-wide-right .service-list-title { color: rgba(207,184,125,0.7); }
+    .service-wide-right .service-list li { color: rgba(255,255,255,0.65); }
+    .service-wide-right .service-list li::before { background: var(--gold); opacity: 0.7; }
+    .service-wide-right .service-cta { color: var(--gold); }
+    .service-wide-right .service-cta:hover { color: var(--gold-light); }
+
+    /* CTA */
+    .section-cta { background: var(--cream); padding: 80px 4%; text-align: center; }
+    .section-cta-inner { max-width: 680px; margin: 0 auto; }
+    .cta-headline { font-family: var(--serif); font-size: clamp(2.2rem, 3.85vw, 3.08rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 16px; }
+    .cta-headline em { font-style: italic; color: var(--gold); }
+    .cta-body { font-size: 0.99rem; line-height: 1.8; color: var(--text-mid); font-weight: 300; margin-bottom: 36px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .service-block { grid-template-columns: 1fr; }
+      .service-block-reverse { direction: ltr; }
+      .service-wide-inner { grid-template-columns: 1fr; }
+      .service-wide-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .service-accent,
+      .service-details,
+      .service-wide-left,
+      .service-wide-right { padding: 40px 32px; }
+    }
+    @media (max-width: 600px) {
+      .service-accent,
+      .service-details,
+      .service-wide-left,
+      .service-wide-right { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="solutions.html" class="active">Solutions</a></li>
+      <li><a href="get-started.html" class="nav-cta">Get Started</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="get-started.html" class="nav-cta">Get Started</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-inner">
+      <div class="page-eyebrow">
+        <div class="page-eyebrow-line"></div>
+        <span>What We Offer</span>
+      </div>
+      <h1 class="page-title">
+        Our<br>
+        <em>Solutions.</em>
+      </h1>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section-services">
+    <div class="services-inner">
+
+      <!-- Bookkeeping -->
+      <div class="service-block reveal">
+        <div class="service-accent">
+          <div class="service-accent-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h2>Book<em>keeping</em></h2>
+          <p>A full range of cost-effective accounting services to help you stay organized, accurate, and confident in your financials.</p>
+        </div>
+        <div class="service-details">
+          <div class="service-list-title">What's Included</div>
+          <ul class="service-list">
+            <li>QuickBooks Online setup &amp; management</li>
+            <li>Financial Statements (Monthly, Quarterly &amp; Annual)</li>
+            <li>Accounts Receivable / Invoicing</li>
+            <li>Accounts Payable</li>
+            <li>Bank &amp; credit card reconciliation</li>
+            <li>Transaction categorization &amp; coding</li>
+          </ul>
+          <a href="get-started.html" class="service-cta">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Consulting -->
+      <div class="service-block service-block-reverse reveal">
+        <div class="service-accent">
+          <div class="service-accent-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <h2>Con<em>sulting</em></h2>
+          <p>Expert advice and guidance to get your business systems running right — whether you're just starting out or need a full overhaul.</p>
+        </div>
+        <div class="service-details">
+          <div class="service-list-title">What's Included</div>
+          <ul class="service-list">
+            <li>Accounting System Implementation</li>
+            <li>Digital System Implementation</li>
+            <li>New Business Startup guidance</li>
+            <li>QuickBooks setup &amp; training</li>
+            <li>Payroll System Implementation</li>
+            <li>Process review &amp; recommendations</li>
+          </ul>
+          <a href="get-started.html" class="service-cta">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Sales Tax -->
+      <div class="service-block reveal">
+        <div class="service-accent">
+          <div class="service-accent-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h2>Sales <em>Tax</em></h2>
+          <p>Comprehensive sales tax and payroll reporting so you stay compliant — without the headache of keeping up with it yourself.</p>
+        </div>
+        <div class="service-details">
+          <div class="service-list-title">What's Included</div>
+          <ul class="service-list">
+            <li>Sales Tax Reporting &amp; Filing</li>
+            <li>Annual 1099 &amp; W2 Filings</li>
+            <li>Payroll Reports (monthly, quarterly &amp; annually)</li>
+            <li>W2 &amp; state wage reports</li>
+            <li>Employment Security Reports</li>
+            <li>941/W2 filings</li>
+          </ul>
+          <a href="get-started.html" class="service-cta">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Branding & Web — full width dark block -->
+      <div class="service-block service-block-wide reveal">
+        <div class="service-wide-inner">
+          <div class="service-wide-left">
+            <div class="service-wide-badge">Powered by thirtythree visuals</div>
+            <h2>Branding &amp; <em>Web Design</em></h2>
+            <p>We turn ideas into visuals that connect and inspire. From eye-catching logos to strategic websites and digital campaigns, our design team helps small businesses stand out, strengthen their identity, and grow with confidence.</p>
+            <a href="get-started.html" class="service-cta" style="color:var(--gold);">Get Started</a>
+          </div>
+          <div class="service-wide-right">
+            <div class="service-list-title">What's Included</div>
+            <ul class="service-list">
+              <li>Logo Design &amp; Brand Identity</li>
+              <li>Website Design &amp; Development</li>
+              <li>Digital Marketing Strategy</li>
+              <li>Brand Strategy &amp; Positioning</li>
+              <li>Graphic Design</li>
+              <li>Web Maintenance &amp; Updates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta">
+    <div class="section-cta-inner reveal">
+      <div class="section-label" style="justify-content:center;">
+        <div class="section-label-line"></div>
+        <span>Ready to Start?</span>
+      </div>
+      <h2 class="cta-headline">
+        Not sure which service<br>is right for <em>you?</em>
+      </h2>
+      <p class="cta-body">
+        Fill out our Get Started form and tell us a little about your business. We'll reach out to talk through the best fit — no pressure, just a conversation.
+      </p>
+      <a href="get-started.html" class="btn-primary">Get Started Today</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
+        </a>
+        <p>Your one-stop-shop for bookkeeping, tax preparation, consulting, and branding. Based in Oklahoma City. Another branch of your business.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="solutions.html">Bookkeeping</a></li>
+          <li><a href="solutions.html">Tax Preparation</a></li>
+          <li><a href="solutions.html">Consulting</a></li>
+          <li><a href="solutions.html">Sales Tax</a></li>
+          <li><a href="solutions.html">Web &amp; Branding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          <span>Oklahoma City, OK 73142</span>
+          <a href="tel:4055093330">(405) 509-3330</a>
+          <a href="mailto:info@treetopbusiness.com">info@treetopbusiness.com</a>
+        </address>
+      </div>
+      <div class="footer-col">
+        <h4>Accreditation</h4>
+        <a href="https://www.bbb.org/us/ok/oklahoma-city/profile/bookkeeping-services/treetop-business-solutions-llc-0995-90110137/#sealclick" target="_blank" rel="nofollow">
+          <img src="https://seal-oklahomacity.bbb.org/seals/darkgray-seal-250-52-bbb-90110137.png" alt="Treetop Business Solutions BBB Business Review" class="footer-bbb-seal" />
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Treetop Business Solutions is not a licensed CPA firm but is affiliated with Boas CPA, PLLC, a licensed Oklahoma CPA firm. Treetop Business Solutions, LLC is fully insured. © 2025 TREETOP BUSINESS SOLUTIONS, LLC.</p>
+      <p>Created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
