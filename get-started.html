@@ -285,6 +285,11 @@
 
   <form id="contact-form" novalidate>
 
+    <!-- Honeypot — hidden from humans, traps bots -->
+    <div style="display:none;" aria-hidden="true">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </div>
+
     <!-- Contact Info -->
     <div class="form-section-title">Contact Information</div>
 
@@ -472,6 +477,13 @@
       btn.disabled = true;
 
       // Collect values
+      // Honeypot check — if filled, silently reject
+      if (document.querySelector('input[name="_gotcha"]').value) {
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('form-success').classList.add('visible');
+        return;
+      }
+
       const firstName   = document.getElementById('first-name').value.trim();
       const lastName    = document.getElementById('last-name').value.trim();
       const company     = document.getElementById('company').value.trim();
