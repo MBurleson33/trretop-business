@@ -85,10 +85,10 @@
       animation: fadeIn 1s 0.7s forwards;
     }
     .tt-hero-logo img {
-      max-width: 340px;
+      max-width: 520px;
       width: 100%;
       filter: brightness(0) invert(1);
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     /* ── INTRO ── */
@@ -185,14 +185,7 @@
       position: relative;
       overflow: hidden;
     }
-    .tt-option-header::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
+
     .tt-option-header h3 {
       font-family: var(--serif);
       font-size: 1.5rem;
@@ -257,11 +250,11 @@
     .tt-portfolio-header h2 em { font-style: italic; }
     .tt-portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .tt-portfolio-item {
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/9;
       border-radius: 4px;
       overflow: hidden;
       position: relative;
@@ -290,8 +283,6 @@
       letter-spacing: 0.04em;
       line-height: 1.3;
     }
-    /* Grid layout — make second row span differently */
-    .tt-portfolio-grid .tt-portfolio-item:nth-child(6) { grid-column: span 1; }
 
     /* ── CTA ── */
     .section-cta { background: var(--cream); padding: 80px 4%; text-align: center; }
@@ -474,22 +465,6 @@
         <div class="tt-portfolio-item">
           <div class="tt-portfolio-item-bg"></div>
           <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">Treetop Business Solutions</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">OACP</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">CMAO</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">OGITA</div></div>
-        </div>
-        <div class="tt-portfolio-item">
-          <div class="tt-portfolio-item-bg"></div>
-          <div class="tt-portfolio-overlay"><div class="tt-portfolio-name">OK Hall of Fame for City Officials</div></div>
         </div>
       </div>
     </div>
