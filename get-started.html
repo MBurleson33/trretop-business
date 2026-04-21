@@ -16,11 +16,12 @@
 ```
 .section-form {
   background: var(--white);
-  padding: 80px 4% 100px;
+  padding: 80px 6% 100px;
 }
 .form-inner {
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
 }
 .form-intro {
   font-size: 1rem;
@@ -229,10 +230,16 @@
 .form-error-msg.visible { display: block; }
 
 /* Responsive */
+@media (max-width: 768px) {
+  .section-form { padding: 60px 5% 80px; }
+}
 @media (max-width: 600px) {
   .form-row { grid-template-columns: 1fr; }
   .form-services-grid { grid-template-columns: 1fr; }
   .form-options-inline { flex-direction: column; }
+  .section-form { padding: 48px 5% 72px; }
+  .form-intro { font-size: 0.92rem; }
+  .form-section-title { font-size: 1.1rem; }
 }
 ```
 
