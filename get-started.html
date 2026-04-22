@@ -538,16 +538,18 @@
       btn.disabled = true;
 
       const data = {
-        _subject: 'New Treetop Get Started Form Submission',
-        name: firstName + ' ' + lastName,
-        company: company,
-        email: email,
-        phone: phone,
-        contact_preference: contactPref || 'Not specified',
-        best_times: bestTimes || 'Not specified',
-        services_interested: services || 'Not specified',
-        comments: comments || 'None'
-      };
+  _subject: `New Lead: ${firstName} ${lastName} | ${company}`,
+  _replyto: email,
+
+  "Full Name": firstName + ' ' + lastName,
+  "Company": company,
+  "Email": email,
+  "Phone": phone,
+  "Contact Preference": contactPref || 'Not specified',
+  "Best Times": bestTimes || 'Not specified',
+  "Services Interested In": services || 'Not specified',
+  "Comments": comments || 'None'
+};
 
       try {
         const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
