@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Started | Treetop Business Solutions</title>
-  <meta name="description" content="Get started with Treetop Business Solutions -- tell us about your business and we'll reach out to schedule a conversation." />
+  <title>Get Started | Treetop Business Solutions | Oklahoma City</title>
+  <meta name="description" content="Ready to get your books in order? Contact Treetop Business Solutions to schedule a free initial conversation about bookkeeping, tax prep, or web design." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -240,6 +240,41 @@
       .form-section-title { font-size: 1.1rem; }
     }
   </style>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://treetopbusiness.com/get-started.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://treetopbusiness.com/get-started.html" />
+  <meta property="og:title" content="Get Started with Treetop Business Solutions" />
+  <meta property="og:description" content="Ready to get your books in order? Contact Treetop Business Solutions to schedule a free initial conversation about bookkeeping, tax prep, or web design." />
+  <meta property="og:image" content="https://treetopbusiness.com/images/og-image.jpg" />
+  <meta property="og:site_name" content="Treetop Business Solutions" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get Started with Treetop Business Solutions" />
+  <meta name="twitter:description" content="Ready to get your books in order? Contact Treetop Business Solutions to schedule a free initial conversation about bookkeeping, tax prep, or web design." />
+  <meta name="twitter:image" content="https://treetopbusiness.com/images/og-image.jpg" />
+
+  <!-- Extra SEO -->
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Treetop Business Solutions" />
+  <meta name="geo.region" content="US-OK" />
+  <meta name="geo.placename" content="Oklahoma City" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E1EHCP07L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3E1EHCP07L', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  </script>
 </head>
 <body>
 
@@ -525,6 +560,7 @@
           document.getElementById('contact-form').style.display = 'none';
           document.getElementById('form-success').classList.add('visible');
           window.scrollTo({ top: 0, behavior: 'smooth' });
+          gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'Get Started Form' });
         } else {
           const body = await res.json().catch(() => ({}));
           throw new Error(body.error || 'Status ' + res.status);
