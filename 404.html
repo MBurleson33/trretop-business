@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Treetop Business Solutions</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .error-page {
+      min-height: 100vh;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .error-page::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .error-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+    }
+    .error-number {
+      font-family: var(--serif);
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 300;
+      color: rgba(207,184,125,0.2);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .error-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .error-eyebrow-line { width: 30px; height: 1px; background: var(--gold); }
+    .error-eyebrow span {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .error-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .error-headline em { font-style: italic; color: var(--gold); }
+    .error-body {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      margin-bottom: 44px;
+    }
+    .error-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="main-nav">
+    <a href="/" class="nav-logo">
+      <img src="/images/TreeTop BS Logo-horiz - bc.png" alt="Treetop Business Solutions" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/solutions.html">Solutions</a></li>
+      <li><a href="/get-started.html" class="nav-cta">Get Started</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/solutions.html">Solutions</a>
+    <a href="/get-started.html" class="nav-cta">Get Started</a>
+  </div>
+
+  <section class="error-page">
+    <div class="error-inner">
+      <div class="error-number">404</div>
+      <div class="error-eyebrow">
+        <div class="error-eyebrow-line"></div>
+        <span>Page Not Found</span>
+        <div class="error-eyebrow-line"></div>
+      </div>
+      <h1 class="error-headline">
+        This page doesn't<br><em>exist.</em>
+      </h1>
+      <p class="error-body">
+        The page you're looking for may have moved or no longer exists. Let's get you back on track.
+      </p>
+      <div class="error-links">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/get-started.html" class="btn-ghost">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
