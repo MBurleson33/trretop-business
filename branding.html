@@ -10,298 +10,64 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-
     /* -- HERO -- */
-    .tt-hero {
-      background: var(--green);
-      padding: 160px 4% 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    .tt-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-    .tt-hero-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    .tt-hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
+    .tt-hero { background: var(--green); padding: 160px 4% 100px; position: relative; overflow: hidden; }
+    .tt-hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .tt-hero-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+    .tt-hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
     .tt-hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
     .tt-hero-eyebrow span { font-size: 0.715rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
-    .tt-hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 5vw, 4.6rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.35s forwards;
-    }
+    .tt-hero h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 4.6rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; }
     .tt-hero h1 em { font-style: italic; color: var(--gold); }
-    .tt-hero-sub {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      margin-bottom: 36px;
-      max-width: 480px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.5s forwards;
-    }
-    .tt-hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.65s forwards;
-    }
-
-    /* Logo lockup on right */
-    .tt-hero-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeIn 1s 0.7s forwards;
-    }
-    .tt-hero-logo img {
-      max-width: 520px;
-      width: 100%;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
-    }
+    .tt-hero-sub { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 36px; max-width: 480px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .tt-hero-actions { display: flex; align-items: center; gap: 24px; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
+    .tt-hero-logo { display: flex; align-items: center; justify-content: center; opacity: 0; animation: fadeIn 1s 0.7s forwards; }
+    .tt-hero-logo img { max-width: 520px; width: 100%; filter: brightness(0) invert(1); opacity: 0.9; }
 
     /* -- INTRO -- */
-    .tt-intro {
-      background: var(--white);
-      padding: 100px 4%;
-    }
-    .tt-intro-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .tt-intro-left h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
+    .tt-intro { background: var(--white); padding: 100px 4%; }
+    .tt-intro-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .tt-intro-left h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 24px; }
     .tt-intro-left h2 em { font-style: italic; }
-    .tt-intro-left p {
-      font-size: 0.99rem;
-      line-height: 1.9;
-      color: var(--text-mid);
-      font-weight: 300;
-      margin-bottom: 16px;
-    }
-    .tt-intro-right {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .tt-service-mini {
-      padding: 28px 24px;
-      background: var(--cream);
-      border-radius: 4px;
-      border-top: 2px solid var(--gold);
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .tt-service-mini:hover {
-      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-      transform: translateY(-3px);
-    }
-    .tt-service-mini h3 {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-    .tt-service-mini p {
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: var(--text-mid);
-      font-weight: 300;
-    }
+    .tt-intro-left p { font-size: 0.99rem; line-height: 1.9; color: var(--text-mid); font-weight: 300; margin-bottom: 16px; }
+    .tt-intro-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tt-service-mini { padding: 28px 24px; background: var(--cream); border-radius: 4px; border-top: 2px solid var(--gold); transition: box-shadow 0.3s, transform 0.3s; }
+    .tt-service-mini:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .tt-service-mini h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--green); margin-bottom: 8px; }
+    .tt-service-mini p { font-size: 0.82rem; line-height: 1.7; color: var(--text-mid); font-weight: 300; }
 
     /* -- WEBSITE OPTIONS -- */
-    .tt-options {
-      background: var(--cream);
-      padding: 100px 4%;
-    }
+    .tt-options { background: var(--cream); padding: 100px 4%; }
     .tt-options-inner { max-width: 1280px; margin: 0 auto; }
     .tt-options-header { margin-bottom: 52px; }
-    .tt-options-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
+    .tt-options-header h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 12px; }
     .tt-options-header h2 em { font-style: italic; }
     .tt-options-header p { font-size: 0.95rem; color: var(--text-mid); font-weight: 300; max-width: 560px; line-height: 1.75; }
-    .tt-options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    .tt-option-card {
-      background: var(--white);
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.07);
-    }
-    .tt-option-header {
-      background: var(--green);
-      padding: 28px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tt-option-header h3 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--white);
-      position: relative;
-      z-index: 1;
-    }
+    .tt-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .tt-option-card { background: var(--white); border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.07); }
+    .tt-option-header { background: var(--green); padding: 28px 32px; position: relative; overflow: hidden; }
+    .tt-option-header h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--white); position: relative; z-index: 1; }
     .tt-option-header h3 em { font-style: italic; color: var(--gold); }
     .tt-option-body { padding: 32px; }
-    .tt-option-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .tt-option-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.5;
-    }
-    .tt-option-list li::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-    .tt-options-note {
-      background: var(--white);
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 4px;
-      padding: 20px 28px;
-      font-size: 0.88rem;
-      color: var(--text-mid);
-      font-weight: 300;
-      line-height: 1.7;
-      border-left: 3px solid var(--gold);
-    }
+    .tt-option-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .tt-option-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--text-mid); font-weight: 300; line-height: 1.5; }
+    .tt-option-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+    .tt-options-note { background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: 4px; padding: 20px 28px; font-size: 0.88rem; color: var(--text-mid); font-weight: 300; line-height: 1.7; border-left: 3px solid var(--gold); }
 
     /* -- PORTFOLIO -- */
-    .tt-portfolio {
-      background: var(--white);
-      padding: 100px 4%;
-    }
+    .tt-portfolio { background: var(--white); padding: 100px 4%; }
     .tt-portfolio-inner { max-width: 1280px; margin: 0 auto; }
     .tt-portfolio-header { margin-bottom: 48px; }
-    .tt-portfolio-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
+    .tt-portfolio-header h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--green); line-height: 1.2; margin-bottom: 12px; }
     .tt-portfolio-header h2 em { font-style: italic; }
-    .tt-portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .tt-portfolio-item {
-      aspect-ratio: 16/9;
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-      background: var(--green-mid);
-      cursor: pointer;
-      display: block;
-      text-decoration: none;
-    }
-    .tt-portfolio-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      transition: transform 0.4s ease;
-    }
+    .tt-portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .tt-portfolio-item { aspect-ratio: 16/9; border-radius: 4px; overflow: hidden; position: relative; background: var(--green-mid); cursor: pointer; display: block; text-decoration: none; }
+    .tt-portfolio-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.4s ease; }
     .tt-portfolio-item:hover .tt-portfolio-img { transform: scale(1.04); }
-
-    .tt-portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10,41,34,0.85) 0%, transparent 60%);
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: 14px 16px;
-    }
-    .tt-portfolio-name {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--white);
-      letter-spacing: 0.04em;
-      line-height: 1.3;
-    }
-    .tt-portfolio-visit {
-      font-size: 0.68rem;
-      color: var(--gold);
-      letter-spacing: 0.12em;
-      margin-top: 4px;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .tt-portfolio-item:hover .tt-portfolio-visit {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .tt-portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,41,34,0.85) 0%, transparent 60%); display: flex; align-items: flex-end; justify-content: space-between; padding: 14px 16px; }
+    .tt-portfolio-name { font-size: 0.82rem; font-weight: 500; color: var(--white); letter-spacing: 0.04em; line-height: 1.3; }
+    .tt-portfolio-visit { font-size: 0.68rem; color: var(--gold); letter-spacing: 0.12em; margin-top: 4px; opacity: 0; transform: translateY(4px); transition: opacity 0.2s, transform 0.2s; }
+    .tt-portfolio-item:hover .tt-portfolio-visit { opacity: 1; transform: translateY(0); }
 
     /* -- CTA -- */
     .section-cta { background: var(--cream); padding: 80px 4%; text-align: center; }
@@ -310,7 +76,6 @@
     .cta-headline em { font-style: italic; color: var(--gold); }
     .cta-body { font-size: 0.99rem; line-height: 1.8; color: var(--text-mid); font-weight: 300; margin-bottom: 36px; }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .tt-hero-inner { grid-template-columns: 1fr; }
       .tt-hero-logo { display: none; }
@@ -324,39 +89,27 @@
     }
   </style>
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://treetopbusiness.com/branding.html" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://treetopbusiness.com/branding.html" />
   <meta property="og:title" content="Web Design & Branding | thirtythree visuals" />
   <meta property="og:description" content="Professional web design, branding, graphic design, and video production for small businesses. A partnership between Treetop Business Solutions and thirtythree visuals." />
   <meta property="og:image" content="https://treetopbusiness.com/images/og-image.jpg" />
   <meta property="og:site_name" content="Treetop Business Solutions" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Web Design & Branding | thirtythree visuals" />
   <meta name="twitter:description" content="Professional web design, branding, graphic design, and video production for small businesses. A partnership between Treetop Business Solutions and thirtythree visuals." />
   <meta name="twitter:image" content="https://treetopbusiness.com/images/og-image.jpg" />
-
-  <!-- Extra SEO -->
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Treetop Business Solutions" />
   <meta name="geo.region" content="US-OK" />
   <meta name="geo.placename" content="Oklahoma City" />
-
-  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3E1EHCP07L"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-3E1EHCP07L', {
-      page_title: document.title,
-      page_location: window.location.href
-    });
+    gtag('config', 'G-3E1EHCP07L', { page_title: document.title, page_location: window.location.href });
   </script>
 </head>
 <body>
@@ -383,7 +136,6 @@
     <a href="get-started.html" class="nav-cta">Get Started</a>
   </div>
 
-  <!-- HERO -->
   <section class="tt-hero">
     <div class="tt-hero-inner">
       <div>
@@ -404,7 +156,6 @@
     </div>
   </section>
 
-  <!-- ABOUT THIRTYTHREE -->
   <section class="tt-intro">
     <div class="tt-intro-inner">
       <div class="tt-intro-left reveal">
@@ -438,7 +189,6 @@
     </div>
   </section>
 
-  <!-- WEBSITE OPTIONS -->
   <section class="tt-options">
     <div class="tt-options-inner">
       <div class="tt-options-header reveal">
@@ -451,9 +201,7 @@
       </div>
       <div class="tt-options-grid reveal">
         <div class="tt-option-card">
-          <div class="tt-option-header">
-            <h3><em>Microsite</em></h3>
-          </div>
+          <div class="tt-option-header"><h3><em>Microsite</em></h3></div>
           <div class="tt-option-body">
             <ul class="tt-option-list">
               <li>Focused messaging with a clear call to action</li>
@@ -465,9 +213,7 @@
           </div>
         </div>
         <div class="tt-option-card">
-          <div class="tt-option-header">
-            <h3><em>Full Website</em></h3>
-          </div>
+          <div class="tt-option-header"><h3><em>Full Website</em></h3></div>
           <div class="tt-option-body">
             <ul class="tt-option-list">
               <li>Comprehensive branding and company overview</li>
@@ -485,7 +231,6 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
   <section class="tt-portfolio">
     <div class="tt-portfolio-inner">
       <div class="tt-portfolio-header reveal">
@@ -501,7 +246,7 @@
           <img src="images/Plentiful.jpg" alt="Plentiful Health &amp; Wellness" class="tt-portfolio-img" />
           <div class="tt-portfolio-overlay">
             <div class="tt-portfolio-name">Plentiful Health &amp; Wellness</div>
-            <div class="tt-portfolio-visit">Visit Site →</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
           </div>
         </a>
 
@@ -509,7 +254,7 @@
           <img src="images/Elevate.jpg" alt="Elevate Recruiting LLC" class="tt-portfolio-img" />
           <div class="tt-portfolio-overlay">
             <div class="tt-portfolio-name">Elevate Recruiting LLC</div>
-            <div class="tt-portfolio-visit">Visit Site →</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
           </div>
         </a>
 
@@ -517,7 +262,7 @@
           <img src="images/VetSense.jpg" alt="Vet Sense UPC" class="tt-portfolio-img" />
           <div class="tt-portfolio-overlay">
             <div class="tt-portfolio-name">Vet Sense UPC</div>
-            <div class="tt-portfolio-visit">Visit Site →</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
           </div>
         </a>
 
@@ -525,7 +270,7 @@
           <img src="images/TOF.jpg" alt="TOF Turf &amp; Outdoors" class="tt-portfolio-img" />
           <div class="tt-portfolio-overlay">
             <div class="tt-portfolio-name">TOF Turf &amp; Outdoors</div>
-            <div class="tt-portfolio-visit">Visit Site →</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
           </div>
         </a>
 
@@ -533,7 +278,7 @@
           <img src="images/CopperRoost.jpg" alt="The Copper Roost" class="tt-portfolio-img" />
           <div class="tt-portfolio-overlay">
             <div class="tt-portfolio-name">The Copper Roost</div>
-            <div class="tt-portfolio-visit">Visit Site →</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
           </div>
         </a>
 
@@ -541,7 +286,15 @@
           <img src="images/Treetop.jpg" alt="Treetop Business Solutions" class="tt-portfolio-img" />
           <div class="tt-portfolio-overlay">
             <div class="tt-portfolio-name">Treetop Business Solutions</div>
-            <div class="tt-portfolio-visit">Visit Site →</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
+          </div>
+        </a>
+
+        <a class="tt-portfolio-item" href="https://thejesusbarn.org" target="_blank" rel="noopener">
+          <img src="images/TJB.jpg" alt="The Jesus Barn" class="tt-portfolio-img" />
+          <div class="tt-portfolio-overlay">
+            <div class="tt-portfolio-name">The Jesus Barn</div>
+            <div class="tt-portfolio-visit">Visit Site &rarr;</div>
           </div>
         </a>
 
@@ -549,22 +302,18 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section-cta">
     <div class="section-cta-inner reveal">
       <div class="section-label" style="justify-content:center;">
         <div class="section-label-line"></div>
         <span>Let's Build Something</span>
       </div>
-      <h2 class="cta-headline">
-        Ready to bring your<br><em>vision to life?</em>
-      </h2>
+      <h2 class="cta-headline">Ready to bring your<br><em>vision to life?</em></h2>
       <p class="cta-body">If you need quality, low-cost web design, graphic design, or other visual services -- we're here to help. Fill out our Get Started form and we'll reach out to talk through your project.</p>
       <a href="get-started.html" class="btn-primary">Get Started</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
@@ -625,7 +374,6 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   </script>
-  <!-- Back to top -->
   <button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"/>
